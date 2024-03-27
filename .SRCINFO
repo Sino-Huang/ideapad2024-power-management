@@ -1,4 +1,5 @@
-pkgbase = ideapad2024-power-management
+
+kgbase = ideapad2024-power-management
 	pkgdesc = Manage power settings for the Lenovo Ideapad 2024 (IdeaPad Pro 5 (Gen 9)) with the CLI tool ideapad2024-power-manage, alongside a system tray icon for convenient access. Remember, you'll need to manually start the tray by executing ideapad2024-power-tray.
 	pkgver = 0.0.1
 	pkgrel = 1

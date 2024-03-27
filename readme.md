@@ -10,10 +10,11 @@ This package provides a command-line interface (CLI) tool and a system tray appl
 
 To install the `ideapad2024-power-management` package, follow these steps:
 
-1. Clone the repository or download the package source.
-2. Navigate to the directory containing the package.
-3. Build the package using your distribution's package management tools.
-4. Install the package with the appropriate package manager command.
+1. Have a basic understanding of how Arch PKGBUILD works, that means, you can read and understand the PKGBUILD file.
+2. Clone the repository or download the package source.
+3. Navigate to the directory containing the package.
+4. If you are using Arch-based distros, run `makepkg -si` to build and install the package. or go to AUR and install the package from there.
+5. If you are using other distros, please read the PKGBUILD file and install the dependencies manually.
 
 Please note that the package conflicts with `power-profiles-daemon`, so you may need to remove that package before installing.
 

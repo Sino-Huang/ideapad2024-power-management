@@ -1,6 +1,6 @@
 # Maintainer: SinoCici <hsk6808065@163.com>
 pkgname=ideapad2024-power-management
-pkgver=0.0.1
+pkgver=0.0.2
 pkgrel=1
 pkgdesc="Manage power settings for the Lenovo Ideapad 2024 (IdeaPad Pro 5 (Gen 9)) with the CLI tool ideapad2024-power-manage, alongside a system tray icon for convenient access. Remember, you'll need to manually start the tray by executing ideapad2024-power-tray."
 arch=("any")
@@ -12,12 +12,16 @@ depends=("python" "python-pyqt6" "cpupower" "acpi_call-dkms")
 makedepends=("git")
 provides=()
 conflicts=()
-# source=("ideapad2024-power-manage.py" "ideapad2024-power-tray.py" "power_management.png" "99-acquire-acpi-permit.rules" "99-user-automatic-powermode.rules")
-source=(
-	"$url/archive/refs/tags/$pkgver.tar.gz"
-)
+source=("ideapad2024-power-manage.py" "ideapad2024-power-tray.py" "power_management.png" "99-acquire-acpi-permit.rules" "99-user-automatic-powermode.rules")
+# source=(
+# 	"$url/archive/refs/tags/$pkgver.tar.gz"
+# )
 
-sha256sums=('7fce3d14facaa1f1139adf68c9fb6592d8e0f12a53fedc9f8adf7123d77e2ba3')
+sha256sums=('33b85a324cf6b3a8c62dbf9be57c25216d6840b319280f35d45878a90a25bc3b'
+            'a5ca61dbd093dc2b80fa9f0a4c8517c5f5175404abbe791603e132e78a736598'
+            '17263b42f651af460ebbcde84864fd95004dee4fdacac74667a6a914494ffdbb'
+            '849582c2061e7e6e6bc0ac66b714a4065a91da6b771639cb7163a87a0eb31d11'
+            '22079083015050c9fc00ebc57bb39ff22ef025e0ebb2924f9ae00f842d2b26de')
 
 build() {
 	# at this point the user can still be captured by $(whoami)

@@ -1,2 +1,2 @@
-ACTION=="change", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/ideapad2024-power-manage -p powersave -b normal"
-ACTION=="change", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/ideapad2024-power-manage -p performance -b conserve"
+ACTION=="change", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_NAME}=="ADP0", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/ideapad2024-power-manage -p powersave -b normal"
+ACTION=="change", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_NAME}=="ADP0", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/ideapad2024-power-manage -p performance -b conserve"

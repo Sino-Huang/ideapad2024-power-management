@@ -35,3 +35,24 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Contributions
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for improvements or bug fixes.
+
+
+
+
+
+## Appendix
+
+### How to update .SRCINFO
+
+```bash
+makepkg --printsrcinfo > .SRCINFO
+```
+
+
+
+### How to install it locally
+
+```bash
+makepkg -sif
+```
+

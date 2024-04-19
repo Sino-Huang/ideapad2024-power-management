@@ -25,7 +25,14 @@ sha256sums=('33b85a324cf6b3a8c62dbf9be57c25216d6840b319280f35d45878a90a25bc3b'
 
 build() {
 	# at this point the user can still be captured by $(whoami)
-	cd "$srcdir/$pkgname-$pkgver"
+	if [ -d "$srcdir/$pkgname-$pkgver" ]; then
+		cd "$srcdir/$pkgname-$pkgver"
+		echo "Changed directory to $srcdir/$pkgname-$pkgver"
+	else
+		cd "$srcdir"
+		echo "Changed directory to $srcdir"
+	fi
+
 	# we need to put the following to the /etc/sudoers.d/01_$(whoami)_ideapad2024-power-management
 	# $(whoami) ALL=(ALL) NOPASSWD: /usr/bin/cpupower frequency-set -g powersave
 	# $(whoami) ALL=(ALL) NOPASSWD: /usr/bin/cpupower frequency-set -g schedutil
@@ -45,7 +52,13 @@ build() {
 
 package() {
 	# Note that $(whoami) is not available here
-	cd "$srcdir/$pkgname-$pkgver"
+	if [ -d "$srcdir/$pkgname-$pkgver" ]; then
+		cd "$srcdir/$pkgname-$pkgver"
+		echo "Changed directory to $srcdir/$pkgname-$pkgver"
+	else
+		cd "$srcdir"
+		echo "Changed directory to $srcdir"
+	fi
 	username=$(cat "whoami.txt")
 	install -Dm 755 "ideapad2024-power-manage.py" "${pkgdir}/usr/bin/ideapad2024-power-manage"
 

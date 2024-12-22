@@ -7,4 +7,8 @@ post_install() {
     sudo /usr/bin/chmod g+w /proc/acpi/call
     sudo /usr/bin/udevadm control --reload-rules
     sudo /usr/bin/udevadm trigger
+
+    # Add sudoers configuration for cpupower
+#     echo "$(whoami) ALL=(ALL) NOPASSWD: /usr/bin/cpupower *" | sudo tee -a /etc/sudoers.d/cpupower > /dev/null
+#     sudo chmod 0440 /etc/sudoers.d/cpupower
 }

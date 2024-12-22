@@ -7,6 +7,11 @@ from PyQt6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidgetAction
 from PyQt6.QtGui import QIcon
 from pathlib import Path
 
+check_version_cmd = 'pacman -Qi ideapad2024-power-management | grep "Version"'
+VERSION_CHECK= subprocess.run(check_version_cmd, shell=True, capture_output=True)
+# decode stdout
+VERSION_CHECK = VERSION_CHECK.stdout.decode("utf-8")
+
 def get_current_power_status():
     command = "/usr/bin/env ideapad2024-power-manage -c"
     output = subprocess.run(command, shell=True, capture_output=True)
@@ -28,6 +33,8 @@ def get_current_power_status():
     if battery_percentage and full_capacity:
         battery_percentage = int(battery_percentage) / int(full_capacity) * 100
         output += f"Battery Percentage: {battery_percentage:.2f}%"
+    # add version
+    output += "\n" + VERSION_CHECK
     
     return output
         

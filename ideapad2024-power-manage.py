@@ -108,15 +108,15 @@ def set_battery_rapid():
 def set_performance_performance():
     command = POWER_PERFORMANCE_COMMAND
     subprocess.run(command, shell=True)
-    # also set cpupower governor to schedutil
-    command = "sudo /usr/bin/cpupower frequency-set -g schedutil"
+    # also set cpupower governor to performance
+    command = "sudo /usr/bin/cpupower frequency-set -g performance"
     subprocess.run(command, shell=True)
     
 def set_performance_extreme():
     command = POWER_EXTREME_COMMAND
     subprocess.run(command, shell=True)
-    # also set cpupower governor to schedutil
-    command = "sudo /usr/bin/cpupower frequency-set -g schedutil"
+    # also set cpupower governor to performance
+    command = "sudo /usr/bin/cpupower frequency-set -g performance"
     subprocess.run(command, shell=True)
     
 def set_performance_powersave():

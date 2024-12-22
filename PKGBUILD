@@ -1,6 +1,6 @@
 # Maintainer: SinoCici <hsk6808065@163.com>
 pkgname=ideapad2024-power-management
-pkgver=0.0.2
+pkgver=0.1.2
 pkgrel=1
 pkgdesc="Manage power settings for the Lenovo Ideapad 2024 (IdeaPad Pro 5 (Gen 9)) with the CLI tool ideapad2024-power-manage, alongside a system tray icon for convenient access. Remember, you'll need to manually start the tray by executing ideapad2024-power-tray."
 arch=("any")
@@ -17,8 +17,8 @@ source=("ideapad2024-power-manage.py" "ideapad2024-power-tray.py" "power_managem
 # 	"$url/archive/refs/tags/$pkgver.tar.gz"
 # )
 
-sha256sums=('33b85a324cf6b3a8c62dbf9be57c25216d6840b319280f35d45878a90a25bc3b'
-            'a5ca61dbd093dc2b80fa9f0a4c8517c5f5175404abbe791603e132e78a736598'
+sha256sums=('25ee0c7a49a4d1deb198d853e1696b23942f4c1a74baf8b1bd722a04eafcf958'
+            '88200384d2f602faa86bd7adf36a1a7ec9ca4ff77cc65d42341d74029e7a33e4'
             '17263b42f651af460ebbcde84864fd95004dee4fdacac74667a6a914494ffdbb'
             '849582c2061e7e6e6bc0ac66b714a4065a91da6b771639cb7163a87a0eb31d11'
             '22079083015050c9fc00ebc57bb39ff22ef025e0ebb2924f9ae00f842d2b26de')
@@ -40,11 +40,13 @@ build() {
 	pred="# editted by ideapad2024-power-management"
 	l1="$(whoami) ALL=(ALL) NOPASSWD: /usr/bin/cpupower frequency-set -g powersave"
 	l2="$(whoami) ALL=(ALL) NOPASSWD: /usr/bin/cpupower frequency-set -g schedutil"
+	l3="$(whoami) ALL=(ALL) NOPASSWD: /usr/bin/cpupower frequency-set -g performance"
 	post="# end of editted by ideapad2024-power-management"
 
 	echo $pred | sudo tee 01_$(whoami)_ideapad2024-power-management
 	echo $l1 | sudo tee -a 01_$(whoami)_ideapad2024-power-management
 	echo $l2 | sudo tee -a 01_$(whoami)_ideapad2024-power-management
+	echo $l3 | sudo tee -a 01_$(whoami)_ideapad2024-power-management
 	echo $post | sudo tee -a 01_$(whoami)_ideapad2024-power-management
 	echo $(whoami) | tee whoami.txt
 
